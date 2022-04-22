@@ -9,7 +9,6 @@
 }
 
 *{
-    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
@@ -20,8 +19,6 @@ body{
 
 .container{
     width: 90%;
-    max-width: 120px;
-    margin: 0 auto;
     overflow: hidden;
     padding: 100px 0;
     height: auto;
@@ -86,7 +83,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0;
+   
 
 }
 
