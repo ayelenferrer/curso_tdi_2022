@@ -295,3 +295,14 @@ a{
         width: 150px;
 
     }
+
+    .product h3{
+        font-size: 1.7em;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .card{
+        border-radius: 4px;
+
+    }
