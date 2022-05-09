@@ -11,16 +11,15 @@
     padding: 0;
     box-sizing: border-box;
     margin: 0;
-    background:#ffffff; 
 }
 
 header{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
     font-family: sans-serif;
     transition: opacity .2s ease-in-out;
+    height: 5em;
 }
 
 a{
@@ -63,6 +62,7 @@ body{
     background: #e88ec6;
     height: 100vh;
     width: 50%;
+    padding-top: 5em;
 }
 
 .derecha{
@@ -78,7 +78,7 @@ body{
 }
 
 .h1-color{
-    color: #000000;
+    color: #fcfcfc;
 }
 
 h1{
@@ -97,33 +97,39 @@ p{
     margin-left: 80px;
 }
 
-a{
-    border: 3px solid #ffffff;
-    padding: 20px;
-    text-decoration: none;
-    color:#ffffff;
-    border-radius: 30px;
-    display: inline-block;
-    margin-top: 30px;
-    margin-left: 80px;
+.boton{
+padding: 10px;
+color:#ffffff;
+margin-top: 2em;
+}
 
+a{ 
+    text-decoration: none;
+    color:#000000;
+    display: inline-block;
+    margin-left: 80px;
+    border: 3px solid #ffffff;
+   border-radius: 30px;
 }
 
 /* footer */
 
 .footer{
     background: #fafafa;
+    position: relative;
+    
 }
 
 .copyright{
     width: 100%;
 }
 
-.contact{
+.contacto{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    color: #fff;
+    color: rgb(0, 0, 0);
+    align-items: center;
 }
 
 .itemContacto{
@@ -154,7 +160,7 @@ a{
 }
 
 
-
+                                        /* Pag. productos*/
 @media screen and (max-width:900px){
     .mockup{
         width: 600px;
@@ -196,6 +202,7 @@ a{
     }
 
 }
+
 
 @media screen and (max-width:700px){
     main .container,
@@ -295,14 +302,37 @@ a{
         width: 150px;
 
     }
+}
 
-    .product h3{
-        font-size: 1.7em;
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
+/*Prueba 2do catálogo*/
 
-    .card{
-        border-radius: 4px;
+simg{
+    width: 100%;
+}
 
-    }
+.boton-comprar{
+    text-decoration: none;
+    color:#ffffff;
+    background: #ec76bf;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.cuerpo-tarjeta{
+    font-family:'Montserrat';
+    font-size: 12px;
+    width:240px;
+    border: solid rgba(95, 95, 95, 0.495) 1px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+
+
+}
+
+.descripcion{
+    padding: 12px;
+    margin-bottom: 10px;
+}
