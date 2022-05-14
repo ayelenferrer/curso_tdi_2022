@@ -336,3 +336,7 @@ img{
     padding: 12px;
     margin-bottom: 10px;
 }
+
+section{display:flex;
+    justify-content: space arround;
+}
