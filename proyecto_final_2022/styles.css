@@ -315,13 +315,14 @@ img{
     padding: 8px;
     border-radius: 5px;
     margin-left: auto;
+    margin-top: 20px;
 }
 
 .cuerpo-tarjeta{
     font-family:'Montserrat';
     font-size: 12px;
     width:240px;
-    border: solid rgba(95, 95, 95, 0.495) 1px;
+    border: solid rgba(66, 66, 66, 0.495) 1px;
     display:flex;
     flex-direction: column;
     align-items: center;
