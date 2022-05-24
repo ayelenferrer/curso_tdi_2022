@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <link rel="icon" href="imágenes/r.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap" rel="stylesheet">
+<style> /* FORMULARIO*/
+
+    /* Importación de fuentes de google fonts */ 
+    @import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+    
+    
+    body{
+      height: 100%; 
+      font-family: 'Noto Sans', sans-serif;
+    }
+    
+    
+    .contact_form{  
+      width: 460px; 
+      height: auto;
+      margin: auto;
+      border-radius: 10px;  
+      padding-top: 30px;
+      padding-bottom: 20px;  
+      background-color: #fbfbfb; 
+      padding-left: 30px; 
+    }
+    
+    
+    input{
+      background-color: #fbfbfb; 
+      width: 408px; 
+      height: 40px; 
+      border-radius: 5px;  
+      border-style: solid; 
+      border-width: 1px; 
+      border-color: #ab4493; 
+      margin-top: 10px;  
+      padding-left: 10px;
+      margin-bottom: 20px; 
+    }
+    
+    
+    textarea{
+      background-color: #fbfbfb; 
+      width: 405px; 
+      height: 150px; 
+      border-radius: 5px;  
+      border-style: solid; 
+      border-width: 1px; 
+      border-color: #ab4493; 
+      margin-top: 10px;  
+      padding-left: 10px;
+      margin-bottom: 20px; 
+      padding-top: 15px; 
+    }
+    
+    
+    label{
+      display: block; 
+      float: center;  
+    }
+    
+    
+    button{
+      height: 45px; 
+      padding-left: 5px;
+      padding-right: 5px;   
+      margin-bottom: 20px; 
+      margin-top: 10px;   
+      text-transform: uppercase;
+      background-color: #d857b8; 
+      border-color: #df54be; 
+      border-style: solid; 
+      border-radius: 10px;  
+      width: 420px;   
+      cursor: pointer;
+    }
+    
+    
+    button p{
+      color: #fff; 
+      margin: auto;
+    }
+    
+    
+    span{
+      color: #ab4493; 
+    }
+    
+    
+    .aviso{
+      font-size: 13px;  
+      color: #0e0e0e;  
+    }
+    
+    
+    h1{
+      font-size: 39px;  
+      text-align: letf; 
+      padding-bottom: 20px; 
+      color: #ab4493;
+    }
+    
+    
+    h3{
+      font-size: 16px; 
+      padding-bottom: 30px;
+      color: #0e0e0e;   
+    }
+    
+    
+    p{
+      font-size: 14px; 
+      color: #0e0e0e; 
+    }
+    
+    
+    ::-webkit-input-placeholder {
+     color: #a8a8a8;
+    }
+    
+    
+    ::-webkit-textarea-placeholder {
+     color: #a8a8a8;
+    }
+    
+    
+    .formulario input:focus{
+      outline:0;
+      border: 1px solid #97d848;
+    }
+    
+    
+    .formulario textarea:focus{
+      outline:0;
+      border: 1px solid #97d848;
+    }
+
+    .fondo_formulario{
+    background-color: #e476ca;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" class="marca">RACHEL BEAUTY</a>
+        </div>
+        <nav>
+            <ul class="nav">
+                <li class="links"><a href="inicio.html">Inicio</a></li>
+                <li class="links"><a href="productos.html">Productos</a></li>
+                <li class="links"><a href="nuestrosingredientes.html">Más información</a></li>
+            </ul>
+        </nav>
+
+    </header>
+   <div class="fondo_formulario">
+        <div class="contact_form"> 
+
+        <div class="formulario">      
+          <h1>Formulario de contacto</h1>
+            <h3>En breve nos pondremos en contacto contigo</h3>
+    
+    
+              <form action="submeter-formulario.php" method="post">       
+    
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">Nombre
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Nombre">
+                    </p>
+                  
+                    <p>
+                      <label for="email" class="colocar_email">Email
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Email">
+                    </p>
+                
+                    <p>
+                      <label for="telefone" class="colocar_telefono">Teléfono
+                      </label>
+                        <input type="tel" name="introducir_telefono" id="telefono" placeholder="Teléfono">
+                    </p>    
+                  
+                    <p>
+                      <label for="website" class="colocar_website">Sitio web
+                      </label>
+                        <input type="url" name="introducir_website" id="website" placeholder="URL de tu web">
+                    </p>    
+                  
+                    <p>
+                      <label for="asunto" class="colocar_asunto">Asunto
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_asunto" id="assunto" required="obligatorio" placeholder="Asunto">
+                    </p>    
+                  
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">Mensaje
+                        <span class="obligatorio">*</span>
+                      </label>                     
+                                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Dejanos tu comentario..."></textarea> 
+                                    </p>                    
+                  
+                    <button type="submit" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+    
+                    <p class="aviso">
+                      <span class="obligatorio"> * </span>los campos son obligatorios.
+                    </p>          
+                
+              </form>
+        </div>  
+      </div>
+    </div>
+    <footer class="footer">
+        <div class="contacto">
+            <div class="itemContacto">
+                <h3 class="contactoTitulo">Encontranos en:</h3>
+                <i class="contactoIcon bx bxl-facebook-circle"></i>
+                <i class="contactoIcon bx bxl-twitter"></i>
+                <i class="contactoIcon bx bxl-instagram"></i>
+
+            </div>
+            <div class="itemContacto">
+                <i class="bx bx-copyright contactoIcon"></i>
+                <h3 class="contactoTitulo">Rachel Beauty</h3>
+                <i class="bx bx-mail-send contactoIcon"></i>
+                <h3 class="contactoTitulo">customeservice@rachelbeauty.com</h3>
+                <i class="bx bxs-edit-location contactoIcon"></i>
+                <h3 class="contactoTitulo">Sucursales</h3>
+            </div>
+            <div class="itemContacto">
+                <i class="bx bxs-chat contactoIcon contactoIcon--modifier"></i>
+                <h3 class="contactoTitulo">Consulta ahora</h3>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
