@@ -48,7 +48,7 @@ $result = $conn->query($sql);
                         <b><?php echo $row['nombre']; ?></b><br>
                         <?php echo $row['descripcion']; ?><br>
                         <?php echo $row['precio']; ?><br>
-                        <a class="boton-comprar" href="#">Comprar</a>
+                        <a class="boton-comprar" href="#">Agregar</a>
 
                     </div>
                 </div>

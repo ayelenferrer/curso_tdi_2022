@@ -1,0 +1,40 @@
+A) El proyecto va a estar definido en 2 partes:
+
+    A.1- Back-end (Sistema de gestión del sitio).
+    A.2- Front-end (Página web abierta al público).
+
+---------------------------------------------------------------------------------------------------
+
+1) Documentación del proyecto (Carpeta:documentacion):
+
+    1- Diagramas (MER, ER (normalizacion)).
+    2- Readme.txt (Descripción del proyecto).
+        2.1- Título.
+        2.2- Autores.
+        2.3- En qué está hecho.
+            2.3.1- Tecnología que se utiliza y probada.(Php versión 7.4.19 y MySQL versión 5.7.3)
+        2.4- Alcance. (hasta donde va a llegar mi proyecto)
+        2.5- Fecha Inicio.
+        2.6- Última actualización.
+        (Llegar a escribir al menos hasta el 2.3 o 2.4)
+
+    3- Manuales de usuarios (Back-end y Front-end).
+
+---------------------------------------------------------------------------------------------------
+
+1) Back-end:
+
+    1- Nuevo archivo: config.php y prueba (archivo para comprobar que funciona mi entrada).
+    2- Nueva carpeta: modelos (En esta carpeta voy a guardar todos los modelos a utilizar [class])
+    3- Nueva carpeta: configuración (Todo lo que necesito para la configuración: credenciales de base de datos, links ws, etc.)
+    4- Nueva carpeta: vistas (Esta carpeta contiene todo lo relacionado a lo visual (código que contenga html, por ejemplo))
+    5- Nuevo archivo: rutas.php (Es un manejador de rutas)
+    6- Nueva carpeta: web (Va a tener todos los JavaScript y CSS para visualizar nuestra interfaz)
+
+
+        
+
+
+
+
+
