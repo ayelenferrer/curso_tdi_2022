@@ -1,6 +1,6 @@
 <?php 
 
-include "config.php";
+include "../config.php";
 
 $sql = "SELECT * FROM producto";
 
@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 
 <body>
     
-<?php include 'barraNav.php';?>
+<?php include '../barraNav.php';?>
        
     
     
@@ -42,13 +42,13 @@ $result = $conn->query($sql);
                 <!-- Tarjeta 1 -->
                 <div class="cuerpo-tarjeta">
                     <div class="foto-producto">
-                        <img class="img" src="imágenes/<?php echo $row['foto']; ?>" alt="Crema Línea Coco">
+                        <img class="img" src="../imágenes/<?php echo $row['foto']; ?>" alt="Crema Línea Coco">
                     </div>
                     <div class="descripcion">
                         <b><?php echo $row['nombre']; ?></b><br>
                         <?php echo $row['descripcion']; ?><br>
                         <?php echo $row['precio']; ?><br>
-                        <a class="boton-comprar" href="#">Agregar</a>
+                        <a class="boton-comprar"  onclick="test()">Agregar</a>
 
                     </div>
                 </div>
@@ -64,8 +64,8 @@ $result = $conn->query($sql);
                                          <!-- Fin del Catálogo-->
         </div>
 
-        <?php include 'footer.php';?>
-
+        <?php include '../footer.php';?>
+        <script src="carrito.js" type="text/javascript"> </script>
     
 </body>
 </html>
