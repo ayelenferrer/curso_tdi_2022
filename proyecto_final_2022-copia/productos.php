@@ -16,6 +16,7 @@ $result = $conn->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./pruebasCarrito/carrito.js" type="text/javascript"> </script>
+    <link type="text/css" rel="stylesheet" href="styles.css"/>
     <title>Productos</title>
 
     
@@ -49,7 +50,7 @@ $result = $conn->query($sql);
                         <?php echo $row['descripcion']; ?><br>
                         <?php echo $row['precio']; ?><br>
                         <input type="number" id="cantidad<?php echo $row['id']; ?>">
-                        <a class="boton-comprar" href="#" id="boton<?php echo $row['id']; ?>" onclick="agregarCarrito(<?php echo $row['id']; ?>,'<?php echo $row['nombre']; ?>',<?php echo $row['precio']; ?>)">Comprar</a>
+                        <a class="boton-comprar" href="#" id="boton<?php echo $row['id']; ?>" onclick="agregarCarrito(<?php echo $row['id']; ?>,'<?php echo $row['nombre']; ?>',<?php echo $row['precio']; ?>,'<?php echo $row['foto']; ?>','<?php echo $row['descripcion']; ?>')">Comprar</a>
 
                     </div>
                 </div>

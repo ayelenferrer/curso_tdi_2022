@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 
 <body>
     
-<?php include '../barraNav.php';?>
+<?php include './backend/nav.php';?>
        
     
     

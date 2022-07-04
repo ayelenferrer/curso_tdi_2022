@@ -14,7 +14,7 @@
 
 <body>
 
-<?php require_once ('navClase.php'); ?>    
+<?php require_once ('nav.php'); ?>    
 
 
 </body>
