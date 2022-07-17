@@ -23,7 +23,7 @@
                     <li class="links"><a href="inicio.html">Inicio</a></li>
                     <li class="links"><a href="productos.php">Productos</a></li>
                     <li class="links"><a href="contacto.html">Contacto</a></li>
-                    <li class="links"><a href="carrito.php"> <i class='bx bxs-cart-add contactoIcon' ></i></a></li>
+                    <li class="links"><a href="carrito.php"> <i class='bx bxs-cart-add contactoIcon' color=#ffff ></i></a></li>
                  
                   
                     

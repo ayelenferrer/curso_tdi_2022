@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +10,7 @@
     <meta name="keywords" content="materialize, admin template, dashboard template, flat admin template, responsive admin template,">
     <title>Inicio - Panel Administrator</title>
     <!-- Favicons-->
-    <link rel="icon" href="images/r.png">
+    <link rel="icon" href="/proyecto_final_2022-copia/plantilla_adminMaterialize/images/r.png">
     <!-- Favicons-->
     <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
     <!-- For iPhone -->
@@ -28,29 +29,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="styles.css"/>
-
-     <!--Import Google Icon Font-->
-     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="backend/web/materialize/css/materialize.css"  media="screen,projection"/>
-    
-
-
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-    <style>
-      
-      .estilo {
-          font-family:'Montserrat';
-          font-weight: 200;
-          margin-left: 0!important;
-          color: #ffffff;
-        }
-      
-    </style>
  
   </head>
+  
   <body>
     <!-- Start Page Loading -->
     <div id="loader-wrapper">
@@ -70,7 +51,7 @@
               <li>
                 <h1 class="logo-wrapper">
                   <a href="index.html" class="brand-logo darken-1">
-                    <a href="panelAdmin.php" class="brand-logo white-text marca estilo">RACHEL BEAUTY</a>
+                    <a class="brand-logo">Rachel Beauty</a>
                   </a>
                 </h1>
               </li>
@@ -144,7 +125,7 @@
                     </a>
                 </li>
                 <li class="bold">
-                  <a href="#" class="waves-effect waves-cyan">
+                  <a href="../" class="waves-effect waves-cyan">
                       <i class="material-icons">shopping_cart</i>
                       <span class="nav-text">Ventas</span>
                     </a>
@@ -184,7 +165,7 @@
                       <p>Gestión de ventas</p>
                     </div>
                     <div class="card-action">
-                      <a href="prueba.php" class="waves-effect waves-light btn gradient-45deg-purple-pink">Ver</a>
+                      <a href="../" class="waves-effect waves-light btn gradient-45deg-purple-pink">Ver</a>
                     </div>
                   </div>
                 </div>
@@ -194,7 +175,7 @@
                   <div class="padding-4">
                     <div class="col s7 m7">
                       <i class="material-icons background-round mt-5">border_color</i>
-                      <p>Crear categorías</p>
+                      <p>Crear Categorías</p>
                     </div>
                     <div class="card-action">
                       <a href="../crearCat.php" class="waves-effect waves-light btn gradient-45deg-purple-pink">Ver</a>
@@ -304,4 +285,3 @@
     <!--custom-script.js - Add your own theme custom JS-->
     <script type="text/javascript" src="js/custom-script.js"></script>
   </body>
-</html>

@@ -196,3 +196,78 @@ Las otras tarjetas del inicio del panel admin:
                     </div>
                   </div>
                 </div>
+
+
+
+Lo del login:
+                <div>
+    <form method="$_POST" action="administradores.php" class="col s12">
+        <div class="row">
+            <div class="input-field col s12 m6 offset-m3">
+                <label for="first_name">Nombre</label>
+                <input id="first_name" type="text" class="validate" name="nombre">
+                
+            </div>
+        
+        </div>
+
+            <div class="row">
+                <div class="input-field col s12 m6 offset-m3">
+                    <label for="last_name">Clave</label>
+                    <input id="last_name" type="password" class="validate" name="clave">
+                    
+                </div>
+            </div>
+            <input type="hidden" name="accion" value="ingresar">
+            <button class="btn waves-effect waves-ligth center-align" type="submit">
+                <i class="material-icons right">Ingresar</i>
+            </button>
+    </form>
+</div>
+        
+            
+            </div>
+
+        
+    </form>
+
+
+
+
+
+    login:
+    <div>
+    <h1 class="center-align">Iniciar sesión</h1>
+</div>
+
+<div>
+    <form method="$_POST" action="administradores.php" class="col s12">
+        <div class="row">
+            <div class="input-field col s12 m6 offset-m3">
+                <label for="first_name">Nombre</label>
+                <input id="first_name" type="text" class="validate" name="nombre">
+                
+            </div>
+        
+        </div>
+
+            <div class="row">
+                <div class="input-field col s12 m6 offset-m3">
+                    <label for="last_name">Clave</label>
+                    <input id="last_name" type="password" class="validate" name="clave">
+                    
+                </div>
+            </div>
+            <input type="hidden" name="accion" value="ingresar">
+            <button class="btn waves-effect waves-ligth center-align" type="submit">
+                <i class="material-icons right">Ingresar</i>
+            </button>
+    </form>
+</div>
+        
+            
+            </div>
+
+        
+    </form>
+</div>

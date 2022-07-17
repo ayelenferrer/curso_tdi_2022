@@ -16,6 +16,7 @@ $result = $conn->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./pruebasCarrito/carrito.js" type="text/javascript"> </script>
+    <link rel="icon" href="imágenes/r.png">
     <link type="text/css" rel="stylesheet" href="styles.css"/>
     <title>Productos</title>
 

@@ -27,40 +27,26 @@
   </head>
 
   <body>
-<div class="tLogin">
-    <h1 class="center-align">Iniciar sesión</h1>
-</div>
-
-<div class="">
-    <form method="$_POST" action="administradores.php" class="col s12 formL">
-        <div class="row">
-            <div class="input-field col s12 m6 offset-m3">
-                <label for="first_name">Nombre</label>
-                <input id="first_name" type="text" class="validate" name="nombre">
-                
-            </div>
-        
-        </div>
-
-            <div class="row">
-                <div class="input-field col s12 m6 offset-m3">
-                    <label for="last_name">Clave</label>
-                    <input id="last_name" type="password" class="validate" name="clave">
-                    
-                </div>
-            </div>
-            <input type="hidden" name="accion" value="ingresar">
-            <button class="btn waves-effect waves-ligth center-align" type="submit">
-                <i class="material-icons right">Ingresar</i>
-            </button>
-    </form>
-</div>
-        
-            
-            </div>
-
-        
-    </form>
-</div>
+  <div class="limiter"></div>
+    <div class="container-login100 ">
+      <div class="wrap-login100 p-t-50 p-b-90">
+        <form class="login100-form validate-form flex-sb flex-w">
+          <span class="login100-form-title p-b-51">Iniciar sesión</span>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Se requiere nombre de usuario">
+            <input class="input100" type="text" name="nombre" placeholder="Nombre">
+            <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 validate-input m-b-16">
+      <input class="input100" type="password" name="clave" placeholder="Clave">
+      <span class="focus-input100"></span>
+    </div>
+    <div class="container-login100-form-btn m-t-17">
+      <button class="login100-form-btn">Ingresar</button>
+    </div>
+        </form>
+    
+      </div>
+      </div>
+    </div>
 
     </body>
