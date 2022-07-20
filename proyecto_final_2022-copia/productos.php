@@ -51,8 +51,14 @@ $result = $conn->query($sql);
                         <?php echo $row['descripcion']; ?><br>
                         <?php echo $row['precio']; ?><br>
                         <input type="number" id="cantidad<?php echo $row['id']; ?>">
-                        <a class="boton-comprar" href="#" id="boton<?php echo $row['id']; ?>" onclick="agregarCarrito(<?php echo $row['id']; ?>,'<?php echo $row['nombre']; ?>',<?php echo $row['precio']; ?>,'<?php echo $row['foto']; ?>','<?php echo $row['descripcion']; ?>')">Comprar</a>
+                        <?php 
+                        if (isset($_SESSION['email'])){
+                            ?>
 
+                        
+                        <a class="boton-comprar" href="#" id="boton<?php echo $row['id']; ?>" onclick="agregarCarrito(<?php echo $row['id']; ?>,'<?php echo $row['nombre']; ?>',<?php echo $row['precio']; ?>,'<?php echo $row['foto']; ?>','<?php echo $row['descripcion']; ?>')">Comprar</a>
+                        <?php }
+                        ?>
                     </div>
                 </div>
 

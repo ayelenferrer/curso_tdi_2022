@@ -1,5 +1,90 @@
 <?php
 
+session_start(); 
+
+include "config.php";
+if (isset($_POST['email']) && isset($_POST['clave'])) {
+  echo '<h1>la contraseña es</h1> ' +  $_POST['clave'];  
+    function validate($data){
+
+       $data = trim($data);
+
+       $data = stripslashes($data);
+
+       $data = htmlspecialchars($data);
+
+       return $data;
+
+    }
+
+    $email = validate($_POST['email']);
+
+    $clave = validate($_POST['clave']);
+
+    if (empty($email)) {
+
+        header("Location: index.php?error=User Name is required");
+
+        exit();
+
+    }else if(empty($clave)){
+
+        header("Location: index.php?error=Password is required");
+
+        exit();
+
+    }else{
+
+        $sql = "SELECT * FROM usuarios WHERE email='$email' AND clave='$clave'";
+
+        $result = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($result) === 1) {
+
+            $row = mysqli_fetch_assoc($result);
+
+            if ($row['email'] === $email && $row['clave'] === $clave) {
+
+                echo "Logged in!";
+
+                $_SESSION['email'] = $row['email'];
+
+                $_SESSION['clave'] = $row['clave'];
+
+                $_SESSION['id'] = $row['id'];
+
+                if ($row['estado'] == 1) {
+                  $_SESSION['tipo'] = "ADMIN";
+                  header("Location: plantilla_adminMaterialize/administradores.php");
+                }
+                else {
+                  $_SESSION['tipo'] = "CLIENTE";
+                  header("Location: productos.php");
+                  
+                }
+
+
+                exit();
+
+            }else{
+
+                header("Location: index.php?error=Incorect User name or password");
+
+                exit();
+
+            }
+
+        }else{
+
+            header("Location: index.php?error=Incorect User name or password");
+
+            exit();
+
+        }
+
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -27,40 +112,26 @@
   </head>
 
   <body>
-<div class="tLogin">
-    <h1 class="center-align">Iniciar sesión</h1>
-</div>
-
-<div class="">
-    <form method="$_POST" action="administradores.php" class="col s12 formL">
-        <div class="row">
-            <div class="input-field col s12 m6 offset-m3">
-                <label for="first_name">Nombre</label>
-                <input id="first_name" type="text" class="validate" name="nombre">
-                
-            </div>
-        
-        </div>
-
-            <div class="row">
-                <div class="input-field col s12 m6 offset-m3">
-                    <label for="last_name">Clave</label>
-                    <input id="last_name" type="password" class="validate" name="clave">
-                    
-                </div>
-            </div>
-            <input type="hidden" name="accion" value="ingresar">
-            <button class="btn waves-effect waves-ligth center-align" type="submit">
-                <i class="material-icons right">Ingresar</i>
-            </button>
-    </form>
-</div>
-        
-            
-            </div>
-
-        
-    </form>
-</div>
+  <div class="limiter"></div>
+    <div class="container-login100 ">
+      <div class="wrap-login100 p-t-50 p-b-90">
+        <form class="login100-form validate-form flex-sb flex-w" action="" method="POST"> 
+          <span class="login100-form-title p-b-51">Iniciar sesión</span>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Se requiere email">
+            <input class="input100" type="text" name="email" placeholder="Email">
+            <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 validate-input m-b-16">
+      <input class="input100" type="password" name="clave" placeholder="Clave">
+      <span class="focus-input100"></span>
+    </div>
+    <div class="container-login100-form-btn m-t-17">
+      <button class="login100-form-btn" href="administradores.php">Ingresar</button>
+    </div>
+        </form>
+    
+      </div>
+      </div>
+    </div>
 
     </body>

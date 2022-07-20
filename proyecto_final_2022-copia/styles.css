@@ -610,3 +610,8 @@ section{display:flex;
                     border: none;
                     background: transparent;
                 }
+
+    .font{
+        font-family: 'Montserrat';
+        font-size: medium;
+    }

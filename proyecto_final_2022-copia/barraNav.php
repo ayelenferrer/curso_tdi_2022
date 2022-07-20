@@ -23,7 +23,24 @@
                     <li class="links"><a href="inicio.html">Inicio</a></li>
                     <li class="links"><a href="productos.php">Productos</a></li>
                     <li class="links"><a href="contacto.html">Contacto</a></li>
-                    <li class="links"><a href="carrito.php"> <i class='bx bxs-cart-add contactoIcon' color=#ffff ></i></a></li>
+                    <?php 
+                        session_start();
+                        if (isset($_SESSION['email'])){
+                            ?>
+                    <li class="links"><a href="logout.php">Logout</a></li>
+                    <?php }
+                        ?>
+                        <?php 
+                        if (!isset($_SESSION['email'])){
+                            ?>
+                    <li class="links"><a href="logintest.php">Login</a></li>
+                    <?php }
+                        ?>
+                    <li class="links"><a href="carrito.php"> <i class='bx bxs-cart-add contactoIcon' ></i></a></li>
+                    <?php 
+                    if(isset($_SESSION['email'])) 
+                    echo $_SESSION['email'];
+                    ?>
                  
                   
                     

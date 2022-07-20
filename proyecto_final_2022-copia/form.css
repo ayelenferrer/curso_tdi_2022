@@ -60,6 +60,8 @@ select{
 
 .form-style-1 .field-long{
 	width: 100%;
+	border: rgb(190,190,190) 1px solid;
+    height: 30px;
 }
 .form-style-1 .field-select{
 	width: 100%;

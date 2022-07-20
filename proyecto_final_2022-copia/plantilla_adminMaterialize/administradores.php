@@ -29,6 +29,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="styles.css"/>
+
+ <style>
+     .font{
+        font-family: 'Montserrat';
+        font-size: medium;
+          }
+ </style>
  
   </head>
   
@@ -50,8 +57,8 @@
             <ul class="left">
               <li>
                 <h1 class="logo-wrapper">
-                  <a href="index.html" class="brand-logo darken-1">
-                    <a class="brand-logo">Rachel Beauty</a>
+                  <a href="administradores.php" class="brand-logo darken-1">
+                    <a class="brand-logo font">Rachel Beauty</a>
                   </a>
                 </h1>
               </li>
