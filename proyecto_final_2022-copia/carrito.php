@@ -1,10 +1,12 @@
 <?php 
-
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
+require 'funciones.php';
 include "config.php";
 
-$sql = "SELECT * FROM producto";
 
-$result = $conn->query($sql);
 
 ?>
 
@@ -22,10 +24,13 @@ $result = $conn->query($sql);
             margin: 0;
             padding: 0;
             background: linear-gradient(to bottom right, #fad4ff, #f4dff7);
-            height: 100vh;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            width: 100%;
         }
 
         .CartContainer {
@@ -85,6 +90,7 @@ $result = $conn->query($sql);
             font-family: 'Open Sans';
             font-weight: 800;
             margin-left: 0!important;
+            margin-bottom: 0!important;
             color: #202020;
         }
 
@@ -169,6 +175,7 @@ $result = $conn->query($sql);
             float: right;
             margin-right: 5%;
             width: 28%;
+            padding-bottom: 30px;
         }
 
         .total {
@@ -201,8 +208,7 @@ $result = $conn->query($sql);
 
         .button {
             margin-top: 10px;
-            width: 100%;
-            height: 40px;
+            width: 50%;
             border: none;
             background: linear-gradient(to bottom right, #fad4ff, #f4dff7);
             border-radius: 20px;
@@ -211,6 +217,9 @@ $result = $conn->query($sql);
             font-family: 'Open Sans';
             font-weight: 600;
             color: #202020;
+            padding: 10px;
+            text-align: center;
+            margin-left: 55%;
         }
 
         .botonBorrar{
@@ -223,6 +232,23 @@ $result = $conn->query($sql);
             margin-top: 20px;
             border:none;
         }
+
+        .btnCantidad {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #d9d9d9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-family: 'Open Sans';
+            font-weight: 900;
+            color: #202020;
+            cursor: pointer;
+            margin-left: 0;
+        }
+
     </style>
 
 </head>
@@ -230,13 +256,44 @@ $result = $conn->query($sql);
 <body>
 
     <?php include 'barraNav.php'; ?>
+    <section>
     <div class="cartbody">
         <div class="CartContainer" id="carritoContainer">
             <div class="Header">
                 <h3 class="Heading">Carrito</h3>
-                <button class="botonBorrar" onclick="limpiarCarrito()">Eliminar todo</button>
+                <a class="botonBorrar" href="borrarProductoCarrito.php?all=true" onclick="limpiarCarrito()">Eliminar todo</a>
             </div>
+    
             <div id="itemsGroup">
+            <?php
+                        if(isset($_SESSION['carrito']) && !empty($_SESSION['carrito'])){
+                            $c=0;
+                            foreach($_SESSION['carrito'] as $indice => $value){
+                                $c++;
+                                $total = $value['precio'] * $value['cantidad'];
+                      ?>
+            <div class="Cart-Items">
+                <div class="image-box">
+                    <img src="imágenes/<?php print $value['foto'] ?>" style='height:"120px"' }} />
+                </div>
+                <div class="about">
+                    <h1 class="title"><?php print $value['nombre'] ?></h1>
+                    <h3 class="subtitle"><?php  print $value['descripcion'] ?></h3>
+                </div>
+                <div class="counter">
+                   <div> <a class="btnCantidad" href="cantidadCarrito.php?id=<?php print $value['id']?>&suma=false">-</a> </div>
+                    <div class="count"><?php print $value['cantidad'] ?></div>
+                   <div> <a class="btnCantidad"  href="cantidadCarrito.php?id=<?php print $value['id']?>&suma=true">+</a> </div>
+                </div>
+                <div class="prices">
+                    <div class="amount">$ <?php print $total?></div>
+                    <a class="remove" href="borrarProductoCarrito.php?id=<?php print $value['id']?>"><u>Eliminar</u></a>
+                </div>
+          </div>
+          <?php
+                            }
+                        }
+                            ?>
             
             </div>
             <hr>
@@ -244,19 +301,19 @@ $result = $conn->query($sql);
                 <div class="total">
                     <div>
                         <div class="Subtotal">Sub-Total</div>
-                        <div class="items">2 items</div>
+                        <div class="items"><?php print cantidadProductos()?> Items</div>
                     </div>
-                    <div class="total-amount">$560</div>
+                    <div class="total-amount">$ <?php print calcularTotal()?></div>
                 </div>
-                <button class="button">Checkout</button>
+                <a class="button" href="confirmarCompra.php">Confirmar</a>
             </div>
         </div>
     </div>
-
+    </section>
 
     <?php include 'footer.php'; ?>
 
-    <script>
+    <!--<script>
         var datastring = localStorage.getItem('productosCarrito') ?? '[]';
         var data = JSON.parse(datastring);
         var container = document.getElementById("itemsGroup")
@@ -309,7 +366,7 @@ $result = $conn->query($sql);
 
 
         })
-    </script> 
+    </script> -->
 </body>
 
 </html>

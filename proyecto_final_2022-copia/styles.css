@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap%27');
 
-:root{
-    --fondo:#ffffff;
-    --fondo2:#E4BAD4; 
-    --f3:#363636;
+:root {
+    --fondo: #ffffff;
+    --fondo2: #E4BAD4;
+    --f3: #363636;
 
 }
 
-*{
+* {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
 }
 
-header{
-    display:flex;
+header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     font-family: sans-serif;
@@ -22,50 +22,50 @@ header{
     height: 5em;
 }
 
-a{
+a {
     text-decoration: none;
-    color:black;
+    color: black;
     font-weight: 300;
 }
 
-.marca{
+.marca {
     font-weight: 600;
     font-variant: small-caps;
 }
 
-.nav{
+.nav {
     display: flex;
     list-style: none;
 }
-   
-.links{
+
+.links {
     padding: 0 10px;
 }
 
-.links a{
+.links a {
     transition: all .3s ease;
 }
 
-.links a:hover{
+.links a:hover {
     color: #ec76bf;
 }
 
-                  /* FIN DEL NAV */
+/* FIN DEL NAV */
 
-body{
+body {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat';
 }
 
-.izquierda{
+.izquierda {
     background: #e88ec6;
     height: 100vh;
     width: 50%;
     padding-top: 5em;
 }
 
-.derecha{
+.derecha {
     background: url(imágenes/principal.png);
     background-size: cover;
     background-position: center;
@@ -73,15 +73,15 @@ body{
     height: 100vh;
 }
 
-#pantalla-dividida{
+#pantalla-dividida {
     display: flex;
 }
 
-.h1-color{
+.h1-color {
     color: #fcfcfc;
 }
 
-h1{
+h1 {
     font-size: 60px;
     width: 50%;
     margin: auto;
@@ -89,40 +89,45 @@ h1{
     margin-left: 80px;
 }
 
-p{
+p {
     font-size: 20px;
     line-height: 30px;
     width: 50%;
+    
 }
 
-.boton{
-padding: 10px;
-color:#ffffff;
-margin-top: 2em;
+.parrafo{
+    margin-left: 70px;
 }
 
-a{ 
+.boton {
+    padding: 10px;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+a {
     text-decoration: none;
-    color:#000000;
+    color: #000000;
     display: inline-block;
     margin-left: 80px;
     border: 3px solid #ffffff;
-   border-radius: 30px;
+    border-radius: 30px;
 }
 
 /* footer */
 
-.footer{
+.footer {
     background: #fafafa;
     position: relative;
-    
+
 }
 
-.copyright{
+.copyright {
     width: 100%;
 }
 
-.contacto{
+.contacto {
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -130,109 +135,112 @@ a{
     align-items: center;
 }
 
-.itemContacto{
+.itemContacto {
     width: 33.3%;
     padding: 60px 0;
     text-align: center;
     background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
 
 }
-.itemContacto--gold{
+
+.itemContacto--gold {
     background: linear-gradient(180deg, #F7CE90 0%, #F4BD76 100%);
     color: var(--black1);
 }
-.contactoIcon{
+
+.contactoIcon {
     font-size: 35px;
     color: var(--yellow1);
     line-height: 20px;
     margin-right: 4px;
 }
 
-.contactoIcon--modifier{
+.contactoIcon--modifier {
     color: var(--black1);
 }
 
-.contactoTitulo{
+.contactoTitulo {
     font-size: 16px;
     line-height: 20px;
 }
 
 
-                                        /* Pag. productos*/
-@media screen and (max-width:900px){
-    .mockup{
+/* Pag. productos*/
+@media screen and (max-width:900px) {
+    .mockup {
         width: 600px;
         height: auto;
     }
 
-    .titulo{
+    .titulo {
         font-size: 50px;
     }
 
-    .copy{
+    .copy {
         font-size: 22px;
     }
 
-    .cta{
+    .cta {
         padding: 15px 22px;
     }
 
-    .containerCarta{
+    .containerCarta {
         justify-content: space-evenly;
     }
 
-    .tira .carta{
+    .tira .carta {
         width: 45%;
     }
 
-    .carta{
+    .carta {
         width: 42%;
     }
 
 
-    .checkItem{
+    .checkItem {
         width: 45%;
         margin-bottom: 35px;
     }
 
-    .suscripciones{
+    .suscripciones {
         width: 80%;
     }
 
 }
 
 
-@media screen and (max-width:700px){
+@media screen and (max-width:700px) {
+
     main .container,
-    footer .container{
+    footer .container {
         padding: 60px 0;
     }
 
-    .navContainer{
+    .navContainer {
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: space-evenly;
     }
 
-    .navWeb{
+    .navWeb {
         height: auto;
     }
 
-    .logo{
-        padding: 15px 0 ;
+    .logo {
+        padding: 15px 0;
         text-align: center;
     }
 
-    .links{
+    .links {
         padding-bottom: 10px;
         text-align: center;
     }
 
-    .link{
+    .link {
         padding: 7px 10px;
     }
 
-    .posterMain{
+    .posterMain {
         flex-direction: column-reverse;
         justify-content: flex-end;
         min-height: 70px;
@@ -240,63 +248,63 @@ a{
         padding: 30px 0;
     }
 
-    .posterTextos{
+    .posterTextos {
         width: 100%;
         text-align: center;
     }
 
-    .mockup{
+    .mockup {
         width: 60%;
         margin-bottom: 20px;
     }
 
-    .titulo{
+    .titulo {
         font-size: 35px;
     }
 
-    .eslogan{
+    .eslogan {
         font-size: 20px;
     }
 
-    .subtitulo{
+    .subtitulo {
         font-size: 35px;
         text-align: center;
     }
 
-    .recomendacionesText{
+    .recomendacionesText {
         font-size: 20px;
         text-align: center;
     }
 
-    .tira .carta{
+    .tira .carta {
         width: 80%;
     }
 
-    .carta{
+    .carta {
         margin-bottom: 40px;
         width: 65%;
     }
 
-    .cartaTitulo{
+    .cartaTitulo {
         font-size: 35px;
     }
 
-    .cartaBoton{
+    .cartaBoton {
         width: 100%;
     }
 
-    .container--modifier{
+    .container--modifier {
         width: 80%;
 
     }
 
-    .itemContacto{
+    .itemContacto {
         width: 100%;
         padding: 30px 0;
-        color:#e88ec6;
+        color: #e88ec6;
     }
 
-    .productos img{
+    .productos img {
         width: 150px;
 
     }
@@ -304,13 +312,13 @@ a{
 
 /*Prueba 2do catálogo*/
 
-img{
+img {
     width: 100%;
 }
 
-.boton-comprar{
+.boton-comprar {
     text-decoration: none;
-    color:#ffffff;
+    color: #ffffff;
     background: #ec76bf;
     padding: 8px;
     border-radius: 5px;
@@ -318,12 +326,12 @@ img{
     margin-top: 20px;
 }
 
-.cuerpo-tarjeta{
-    font-family:'Montserrat';
+.cuerpo-tarjeta {
+    font-family: 'Montserrat';
     font-size: 12px;
-    width:240px;
+    width: 240px;
     border: solid rgba(66, 66, 66, 0.495) 1px;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -333,285 +341,16 @@ img{
 
 }
 
-.descripcion{
+.descripcion {
     padding: 12px;
     margin-bottom: 10px;
 }
 
-section{display:flex;
+section {
+    display: flex;
     justify-content: space arround;
     flex-wrap: wrap;
 }
 
 
-.btnLogin {
-    position:absolute;
-    width:60px;
-    height:60px;
-    line-height: 63px;
-    bottom:25px;
-    right:25px;
-    background:#db70c9;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:35px;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.3);
-    z-index:100;
-    transition: all 300ms ease;
-}
 
-.btnLogin:hover{
-    text-decoration: none;
-    color: #db73b3;
-    background: #ffffff;
-
-}
-
-.tLogin {
-    text-align: center;
-
-}
-
-.formL {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .formLinput{
-    width: 90%;
-    height: 30px;
-    margin: 0.5rem;
-  }
-  
-  .formLbutton {
-    padding: 0.5em 1em;
-    border: none;
-    background: rgb(228, 154, 238);
-    cursor: pointer;
-  }
-
-  .formLcontainer{
-    max-width:700px;
-    margin: 0 auto;
-  }
-  
-  .formLelement {
-    display: block;
-    width: 80%;
-    margin: 1rem auto;
-    
-  }
-  
-
-  
-                                    logintest 
-    .limiter {
-    width: 100%;
-    margin: 0 auto;}
-
-    .container-login100 {
-        width: 100%;
-        min-height: 100vh;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        padding: 15px;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-
-    .wrap-login100 {
-        width: 390px;
-        background: #fff;
-        border-radius: 10px;
-        position: relative;
-    }
-
-    .p-b-90 {
-        padding-bottom: 90px;
-    }
-
-    * {
-        margin: 0px;
-        padding: 0px;
-        box-sizing: border-box;}
-
-    .login100-form {
-        width: 100%;
-        }
-
-     .flex-sb {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        justify-content: space-between;
-        }   
-    
-    .flex-w {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-flex-wrap: wrap;
-        -moz-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-        -o-flex-wrap: wrap;
-        flex-wrap: wrap;
-        }
-
-        .login100-form-title {
-            font-family: Ubuntu-Bold;
-            font-size: 30px;
-            color: #db73b3;
-            line-height: 1.2;
-            text-transform: uppercase;
-            text-align: center;
-            width: 100%;
-            display: block;
-            font-family: 'Montserrat';
-            font-weight: 600;
-            }
-
-            .p-b-51 {
-                padding-bottom: 51px;
-            }
-            .validate-input {
-                position: relative;
-            }
-    
-            .wrap-input100 {
-                width: 100%;
-                position: relative;
-                background-color: #e6e6e6;
-                border: 1px solid transparent;
-                border-radius: 3px;
-            }
-
-            .m-b-16 {
-                margin-bottom: 16px;
-            }
-
-            .input100 {
-                font-family: 'Montserrat';
-                color: #ec54b2;
-                line-height: 1.2;
-                font-size: 18px;
-                display: block;
-                width: 100%;
-                background: transparent;
-                height: 62px;
-                padding: 0 20px 0 38px;}
-
-                input {
-                    outline: none;
-                    border: none;
-                }
-
-                button, input {
-                    overflow: visible;
-                }
-
-                .focus-input100 {
-                    position: absolute;
-                    display: block;
-                    width: calc(100% + 2px);
-                    height: calc(100% + 2px);
-                    top: -1px;
-                    left: -1px;
-                    pointer-events: none;
-                    border: 1px solid #fe7fde;
-                    border-radius: 3px;
-                    visibility: hidden;
-                    opacity: 0;
-                    -webkit-transition: all 0.4s;
-                    -o-transition: all 0.4s;
-                    -moz-transition: all 0.4s;
-                    transition: all 0.4s;
-                    -webkit-transform: scaleX(1.1) scaleY(1.3);
-                    -moz-transform: scaleX(1.1) scaleY(1.3);
-                    -ms-transform: scaleX(1.1) scaleY(1.3);
-                    -o-transform: scaleX(1.1) scaleY(1.3);
-                    transform: scaleX(1.1) scaleY(1.3);
-                }
-
-                .validate-input {
-                    position: relative;
-                }
-
-                .wrap-input100 {
-                    width: 100%;
-                    position: relative;
-                    background-color: #e6e6e6;
-                    border: 1px solid transparent;
-                    border-radius: 3px;
-                }
-
-
-                .m-b-16 {
-                    margin-bottom: 16px;
-                }
-
-                .container-login100-form-btn {
-                    width: 100%;
-                    display: -webkit-box;
-                    display: -webkit-flex;
-                    display: -moz-box;
-                    display: -ms-flexbox;
-                    display: flex;
-                    flex-wrap: wrap;
-                    font-family: 'Montserrat';
-                }
-
-                .m-t-17 {
-                    margin-top: 17px;
-                }
-
-                .login100-form-btn {
-                    font-family: Ubuntu-Bold;
-                    font-size: 16px;
-                    color: #fff;
-                    line-height: 1.2;
-                    text-transform: uppercase;
-                    display: -webkit-box;
-                    display: -webkit-flex;
-                    display: -moz-box;
-                    display: -ms-flexbox;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 0 20px;
-                    width: 100%;
-                    height: 62px;
-                    background-color: #ec76bf;
-                    border-radius: 3px;
-                    -webkit-transition: all 0.4s;
-                    -o-transition: all 0.4s;
-                    -moz-transition: all 0.4s;
-                    transition: all 0.4s;
-                }
-
-                button {
-                    outline: none !important;
-                    border: none;
-                    background: transparent;
-                }
-
-    .font{
-        font-family: 'Montserrat';
-        font-size: medium;
-    }

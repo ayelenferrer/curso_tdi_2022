@@ -1,6 +1,7 @@
 <?php 
 
 include "config.php";
+require 'funciones.php';
 
 $sql = "SELECT * FROM producto";
 
@@ -50,13 +51,13 @@ $result = $conn->query($sql);
                         <b><?php echo $row['nombre']; ?></b><br>
                         <?php echo $row['descripcion']; ?><br>
                         <?php echo $row['precio']; ?><br>
-                        <input type="number" id="cantidad<?php echo $row['id']; ?>">
                         <?php 
-                        if (isset($_SESSION['email'])){
+                        
+                        if (isset($_SESSION['email'])&&!productoEnCarrito($row['id'])){
                             ?>
 
-                        
-                        <a class="boton-comprar" href="#" id="boton<?php echo $row['id']; ?>" onclick="agregarCarrito(<?php echo $row['id']; ?>,'<?php echo $row['nombre']; ?>',<?php echo $row['precio']; ?>,'<?php echo $row['foto']; ?>','<?php echo $row['descripcion']; ?>')">Comprar</a>
+<input type="number" id="cantidad<?php echo $row['id']; ?>">                     
+<a class="boton-comprar" href="#" id="boton<?php echo $row['id']; ?>" onclick="agregarCarrito(<?php echo $row['id']; ?>,'<?php echo $row['nombre']; ?>',<?php echo $row['precio']; ?>,'<?php echo $row['foto']; ?>','<?php echo $row['descripcion']; ?>')">Comprar</a>
                         <?php }
                         ?>
                     </div>

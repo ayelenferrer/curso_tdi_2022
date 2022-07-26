@@ -5321,7 +5321,7 @@ small {
 .btn, .btn-large {
   text-decoration: none;
   color: #fff;
-  background-color: #ff4081;
+  background-color: #ba68c8 ;
   text-align: center;
   letter-spacing: .5px;
   transition: .2s ease-out;
@@ -5342,7 +5342,7 @@ small {
   height: 40px;
   line-height: 40px;
   padding: 0;
-  background-color: #ff4081;
+  background-color: #ba68c8;
   border-radius: 50%;
   transition: .3s;
   cursor: pointer;
@@ -5350,7 +5350,7 @@ small {
 }
 
 .btn-floating:hover {
-  background-color: #ff4081;
+  background-color: #ba68c8;
 }
 
 .btn-floating:before {
@@ -5493,7 +5493,7 @@ button.btn-floating {
   z-index: -1;
   width: 40px;
   height: 40px;
-  background-color: #ff4081;
+  background-color: #ba68c8;
   border-radius: 50%;
   transform: scale(0);
 }
@@ -5572,7 +5572,7 @@ button.btn-floating {
 
 .dropdown-content li > a, .dropdown-content li > span {
   font-size: 16px;
-  color: #ff4081;
+  color: #ba68c8;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
@@ -6143,7 +6143,7 @@ input[type=tel]:not(.browser-default):focus:not([readonly]),
 input[type=number]:not(.browser-default):focus:not([readonly]),
 input[type=search]:not(.browser-default):focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #ff4081;
+  border-bottom: 1px solid #ba68c8;
   box-shadow: 0 1px 0 0 #ff4081;
 }
 
@@ -7407,7 +7407,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav li > a.btn-floating:hover {
-  background-color: #ff4081;
+  background-color: #ba68c8;
 }
 
 .side-nav li > a > i,
@@ -7625,7 +7625,7 @@ input[type=range]:focus::-ms-fill-upper {
   width: 100%;
   height: 100%;
   opacity: 0;
-  border-color: #ff4081;
+  border-color: #ba68c8 ;
 }
 
 .spinner-blue,
