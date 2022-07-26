@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap%27');
+
+:root {
+    --fondo: #ffffff;
+    --fondo2: #E4BAD4;
+    --f3: #363636;
+
+}
+
+* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: sans-serif;
+    transition: opacity .2s ease-in-out;
+    height: 5em;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 300;
+}
+
+.marca {
+    font-weight: 600;
+    font-variant: small-caps;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+}
+
+.links {
+    padding: 0 10px;
+}
+
+.links a {
+    transition: all .3s ease;
+}
+
+.links a:hover {
+    color: #ec76bf;
+}
+
+/* FIN DEL NAV */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+}
+
+.izquierda {
+    background: #e88ec6;
+    height: 100vh;
+    width: 50%;
+    padding-top: 5em;
+}
+
+.derecha {
+    background: url(../imágenes/principal.png);
+    background-size: cover;
+    background-position: center;
+    width: 50%;
+    height: 100vh;
+}
+
+#pantalla-dividida {
+    display: flex;
+}
+
+.h1-color {
+    color: #fcfcfc;
+}
+
+h1 {
+    font-size: 60px;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 50px;
+    margin-left: 80px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 30px;
+    width: 50%;
+    
+}
+
+.parrafo{
+    margin-left: 70px;
+}
+
+.boton {
+    padding: 10px;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    display: inline-block;
+    margin-left: 80px;
+    border: 3px solid #ffffff;
+    border-radius: 30px;
+}
+
+/* footer */
+
+.footer {
+    background: #fafafa;
+    position: relative;
+
+}
+
+.copyright {
+    width: 100%;
+}
+
+.contacto {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    color: rgb(0, 0, 0);
+    align-items: center;
+}
+
+.itemContacto {
+    width: 33.3%;
+    padding: 60px 0;
+    text-align: center;
+    background: linear-gradient(180deg, var(--black2) 0%, var(--black1) 100%);
+
+}
+
+.itemContacto--gold {
+    background: linear-gradient(180deg, #F7CE90 0%, #F4BD76 100%);
+    color: var(--black1);
+}
+
+.contactoIcon {
+    font-size: 35px;
+    color: var(--yellow1);
+    line-height: 20px;
+    margin-right: 4px;
+}
+
+.contactoIcon--modifier {
+    color: var(--black1);
+}
+
+.contactoTitulo {
+    font-size: 16px;
+    line-height: 20px;
+}
+
+
+/* Pag. productos*/
+@media screen and (max-width:900px) {
+    .mockup {
+        width: 600px;
+        height: auto;
+    }
+
+    .titulo {
+        font-size: 50px;
+    }
+
+    .copy {
+        font-size: 22px;
+    }
+
+    .cta {
+        padding: 15px 22px;
+    }
+
+    .containerCarta {
+        justify-content: space-evenly;
+    }
+
+    .tira .carta {
+        width: 45%;
+    }
+
+    .carta {
+        width: 42%;
+    }
+
+
+    .checkItem {
+        width: 45%;
+        margin-bottom: 35px;
+    }
+
+    .suscripciones {
+        width: 80%;
+    }
+
+}
+
+
+@media screen and (max-width:700px) {
+
+    main .container,
+    footer .container {
+        padding: 60px 0;
+    }
+
+    .navContainer {
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .navWeb {
+        height: auto;
+    }
+
+    .logo {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    .links {
+        padding-bottom: 10px;
+        text-align: center;
+    }
+
+    .link {
+        padding: 7px 10px;
+    }
+
+    .posterMain {
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+        min-height: 70px;
+        height: auto;
+        padding: 30px 0;
+    }
+
+    .posterTextos {
+        width: 100%;
+        text-align: center;
+    }
+
+    .mockup {
+        width: 60%;
+        margin-bottom: 20px;
+    }
+
+    .titulo {
+        font-size: 35px;
+    }
+
+    .eslogan {
+        font-size: 20px;
+    }
+
+    .subtitulo {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    .recomendacionesText {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .tira .carta {
+        width: 80%;
+    }
+
+    .carta {
+        margin-bottom: 40px;
+        width: 65%;
+    }
+
+    .cartaTitulo {
+        font-size: 35px;
+    }
+
+    .cartaBoton {
+        width: 100%;
+    }
+
+    .container--modifier {
+        width: 80%;
+
+    }
+
+    .itemContacto {
+        width: 100%;
+        padding: 30px 0;
+        color: #e88ec6;
+    }
+
+    .productos img {
+        width: 150px;
+
+    }
+}
+
+/*Prueba 2do catálogo*/
+
+img {
+    width: 100%;
+}
+
+.boton-comprar {
+    text-decoration: none;
+    color: #ffffff;
+    background: #ec76bf;
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-top: 20px;
+}
+
+.cuerpo-tarjeta {
+    font-family: 'Montserrat';
+    font-size: 12px;
+    width: 240px;
+    border: solid rgba(66, 66, 66, 0.495) 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    margin: 50px;
+
+
+}
+
+.descripcion {
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+section {
+    display: flex;
+    justify-content: space arround;
+    flex-wrap: wrap;
+}
+
+
+
