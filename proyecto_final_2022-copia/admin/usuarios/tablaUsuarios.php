@@ -53,6 +53,7 @@ $usuarios = $conn->query($sql);
                                         <th>Correo</th>
                                         <th>Documento</th>
                                         <th>Teléfono</th>
+                                        <th>Acciones</th>
                                         <th><a  href="formularioAdmin.php" class="waves-effect waves-light btn">Crear</a></th>
                                     </tr>
                                 </thead>
@@ -72,6 +73,7 @@ $usuarios = $conn->query($sql);
                                                 <td><?php echo $row['email']; ?></td>
                                                 <td><?php echo $row['documento']; ?></td>
                                                 <td><?php echo $row['telefono']; ?></td>
+                                                <td><a class="waves-effect waves-light btn modal-trigger" href="borrarUsuario.php?id=<?php echo $row['id']; ?>">Borrar</a></td>
                                                 
                                             </tr>
 
