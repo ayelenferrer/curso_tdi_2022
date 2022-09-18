@@ -1,0 +1,14 @@
+A) El proyecto va a estar definido en dos partes:
+    A.1) Back-end (Sistema de gestión del sitio)
+    A.2) Front-end (Página web abierta al público)
+
+1) Documentación del proyecto (_documentacion)
+    1- Diagramas (mer, normalización, diagramas de flujo, diagramas secuancia)
+    2- readme.txt (Descripción del proyecto)
+        2.1- Título
+        2.2- Autores
+        2.3- En qué está hecho
+        2.4- Alcance
+        2.5- Fecha de inicio
+        2.6- Última actualización
+        
