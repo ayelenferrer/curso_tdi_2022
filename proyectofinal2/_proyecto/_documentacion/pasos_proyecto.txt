@@ -1,3 +1,4 @@
+---------------------------------------------------------------------------------------------------
 A) El proyecto va a estar definido en dos partes:
     A.1) Back-end (Sistema de gestión del sitio)
     A.2) Front-end (Página web abierta al público)
@@ -8,7 +9,20 @@ A) El proyecto va a estar definido en dos partes:
         2.1- Título
         2.2- Autores
         2.3- En qué está hecho
-        2.4- Alcance
-        2.5- Fecha de inicio
+            2.3.1- Tecnología que se usa y probada.
+        2.4- Alcance / hasta donde va a llegar mi proyecto, en base a lo que me pide la letra, decir que logré
+        2.5- Fecha de inicio 18/9
         2.6- Última actualización
-        
+
+    3- Manuales de usuarios (Back-end y Front-end).
+
+---------------------------------------------------------------------------------------------------
+
+1) Creo el archivo index.php y lo pruebo
+2) Creo una carpeta modelos (para guardar todos los modelos que voy a utilizar (Las clases "class"))
+3) Creo la carpeta configuracion (credenciales base de datos, links ws, etc. (Que él al tocar el archivo de config, le tenga que andar y no estar metiendo mano en el código para que le funcione))
+4) "    la carpeta vistas (guarda todo aquello que esté relacionado con la parte visual (html))
+5) router.php (manejador de rutas, pasaje de direcciones)
+6) web (contiene los archivos JavaScript y css necesarios para nuestra interfaz)
+
+---------------------------------------------------------------------------------------------------
