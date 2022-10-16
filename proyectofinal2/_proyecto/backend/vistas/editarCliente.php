@@ -1,18 +1,25 @@
 <?php
 
 require_once("modelos/clientes_modelo.php");
-if (isset($_POST['submit'])) {
 
-        $objClientes = new clientes_modelo();
+$objClientes = new clientes_modelo();
 
-        $objClientes->constructor();
-
-        $error = $objClientes->ingresar();
-
-        if(isset($error['estado']) && $error['estado'] == 'Ok'){
-            header("Location: sistema.php?r=clientes");
+if(isset($_GET['a']) && $_GET['a'] == "editar" && isset($_GET['id']) && $_GET['id'] != ""){ 
+    $idRegistro = isset($_GET['id'])?$_GET['id']:"";
+    $objClientes->cargar($idRegistro);
+    if (isset($_POST['submit'])) {
+        {
+            $objClientes->constructor();
+    
+            $error = $objClientes->guardar();
+    
+            if(isset($error['estado']) && $error['estado'] == 'Ok'){
+                header("Location: sistema.php?r=clientes");
+            }
         }
+    }
 }
+
 
 ?>
 
@@ -53,20 +60,20 @@ if (isset($_POST['submit'])) {
                         <fieldset>
                             <ul class="form-style-1">
                                 <li>
+                                    <label>Documento<span class="required"></span></label>
+                                    <input type="text" id="documento" name="documento" class="field-long" value="<?=$objClientes->obtenerDocumento()?>" />
+                                </li>
+                                <li>
                                     <label>Nombres<span class="required"></span></label>
-                                    <input type="text" id="nombres" name="nombres" class="field-long" />
+                                    <input type="text" id="nombres" name="nombres" class="field-long" value="<?=$objClientes->obtenerNombres()?>" />
                                 </li>
                                 <li>
                                     <label>Apellidos<span class="required"></span></label>
-                                    <input type="text" id="apellidos" name="apellidos" class="field-long" />
-                                </li>
-                                <li>
-                                    <label>Documento<span class="required"></span></label>
-                                    <input type="text" id="documento" name="documento" class="field-long" />
+                                    <input type="text" id="apellidos" name="apellidos" class="field-long" value="<?=$objClientes->obtenerApellidos()?>" />
                                 </li>
                                 <li>
                                     <label>Teléfono<span class="required"></span></label>
-                                    <input type="text" id="telefono" name="telefono" class="field-long" />
+                                    <input type="text" id="telefono" name="telefono" class="field-long" value="<?=$objClientes->obtenerTelefono()?>" />
                                 </li>
                                 <li>
                                     <input class="waves-effect waves-light btn blue darken-4" type="submit" name="submit" value="Enviar">
@@ -89,5 +96,4 @@ if (isset($_POST['submit'])) {
             </section>
 
         </div>
- 
 </body>

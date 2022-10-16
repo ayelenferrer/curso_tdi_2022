@@ -1,17 +1,22 @@
 <?php
 
-require_once("modelos/clientes_modelo.php");
+require_once("modelos/empleados_modelo.php");
 if (isset($_POST['submit'])) {
 
-        $objClientes = new clientes_modelo();
+    if($_POST['clave']!= $_POST['clave_repeticion']){
+        $error['mensaje'] = "Las claves ingresadas no coinciden";
+    }
+    else{
+        $objEmpleados = new empleados_modelo();
 
-        $objClientes->constructor();
+        $objEmpleados->constructor();
 
-        $error = $objClientes->ingresar();
+        $error = $objEmpleados->ingresar();
 
         if(isset($error['estado']) && $error['estado'] == 'Ok'){
-            header("Location: sistema.php?r=clientes");
+            header("Location: sistema.php?r=empleados");
         }
+    }
 }
 
 ?>
@@ -20,7 +25,7 @@ if (isset($_POST['submit'])) {
 <html lang="en">
 
 <head>
-    <title>Registrar Cliente</title>
+    <title>Registrar Empleado</title>
     <style>
         span {
             font-weight: bold;
@@ -53,20 +58,28 @@ if (isset($_POST['submit'])) {
                         <fieldset>
                             <ul class="form-style-1">
                                 <li>
-                                    <label>Nombres<span class="required"></span></label>
-                                    <input type="text" id="nombres" name="nombres" class="field-long" />
+                                    <label>Email<span class="required"></span></label>
+                                    <input type="text" id="email" name="email" class="field-long" />
+                                </li>
+
+                                <li>
+                                    <label>Clave<span class="required"></span></label>
+                                    <input type="password" id="clave" name="clave" class="field-long" />
                                 </li>
                                 <li>
-                                    <label>Apellidos<span class="required"></span></label>
-                                    <input type="text" id="apellidos" name="apellidos" class="field-long" />
+                                    <label>Repetir clave<span class="required"></span></label>
+                                    <input type="password" id="clave_repeticion" name="clave_repeticion" class="field-long" />
                                 </li>
                                 <li>
-                                    <label>Documento<span class="required"></span></label>
-                                    <input type="text" id="documento" name="documento" class="field-long" />
-                                </li>
-                                <li>
-                                    <label>Teléfono<span class="required"></span></label>
-                                    <input type="text" id="telefono" name="telefono" class="field-long" />
+                                    <label>Tipo de empleado<span class="required"></span></label>
+                                    <div class="input-field col s12">
+                                        <select id="tipo" name="tipo">
+                                            <option value="" disabled selected>Seleccione una opcion...</option>
+                                            <option value="recepcionista">Recepcionista</option>
+                                            <option value="cadete">Cadete</option>
+                                            <option value="encargado">Encargado</option>
+                                        </select>
+                                    </div>
                                 </li>
                                 <li>
                                     <input class="waves-effect waves-light btn blue darken-4" type="submit" name="submit" value="Enviar">

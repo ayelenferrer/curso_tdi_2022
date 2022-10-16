@@ -35,7 +35,7 @@
                         </div>
 
                         <p class="center-align">
-                            <button class="waves-effect waves-light btn blue darken-4" type="submit">Buscar</button>
+                            <button href="rastreo.php?r=rastreo" class="waves-effect waves-light btn blue darken-4" type="submit">Buscar</button>
                         </p>
     </main>
 </body>

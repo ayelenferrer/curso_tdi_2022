@@ -1,8 +1,8 @@
 <?php
 
-	require_once("modelos/clientes_modelo.php");
+	require_once("modelos/envios_modelo.php");
 
-	$objClientes = new clientes_modelo();
+	$objEnvios = new envios_modelo();
 
 
 	// Evaluar las acciones que mando
@@ -10,23 +10,16 @@
 	if(isset($_GET['accion']) && $_GET['accion'] == "ingresar"){
 
 		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objClientes->constructor();
-		$error = $objClientes->ingresar();
+		$objEnvios->constructor();
+		$error = $objEnvios->ingresar();
 
-	}
-	if(isset($_GET['a']) && $_GET['a'] == "borrar"){
-
-		$id = isset($_GET['id'])?$_GET['id']:"";
-		$objClientes->cargar($id);	
-		$error = $objClientes->borrar();
-        header('Location: sistema.php?r=clientes');
 	}
 
 	if(isset($_GET['accion']) && $_GET['accion'] == "guardar"){
 
 		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objClientes->constructor();
-		$error = $objClientes->guardar();
+		$objEnvios->constructor();
+		$error = $objEnvios->guardar();
 
 	}
 		
@@ -36,11 +29,11 @@
 	if(isset($_GET['p']) && !Empty($_GET['p']) && $_GET['p'] != ""){
 		$arrayFiltro["pagina"] = $_GET['p'];
 	}
-	$arrayPagina = $objClientes->paginador($arrayFiltro["pagina"]);
+	$arrayPagina = $objEnvios->paginador($arrayFiltro["pagina"]);
 
 
 
-	$listaClientes	= $objClientes->listar($arrayFiltro);
+	$listaEnvios	= $objEnvios->listar($arrayFiltro);
 
 
 ?>
@@ -50,7 +43,7 @@
 <html lang="en">
 
 <head>
-    <title>Clientes</title>
+    <title>Envios</title>
 </head>
 
 <body>
@@ -94,27 +87,35 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Documento</th>
-                                <th>Nombres</th>
-                                <th>Apellidos</th>
-                                <th>Teléfono</th>
-                                <th><a href="sistema.php?r=registrarCliente" class="waves-effect waves-light btn blue darken-4">Registrar</a></th>
+                                <th>Código</th>
+                                <th>Destinatario</th>
+                                <th>Recepción</th>
+                                <th>Envio</th>
+                                <th>Calle</th>
+                                <th>Puerta</th>
+                                <th>Apartamento</th>
+                                <th>Otros</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
-                                foreach($listaClientes as $cliente){
+                                foreach($listaEnvios as $envio){
                             ?>
                                     <tr>
-                                        <td><?=$cliente['id']?></td>
-                                        <td><?=$cliente['documento']?></td>
-                                        <td><?=$cliente['nombres']?></td>
-                                        <td><?=$cliente['apellidos']?></td>
-                                        <td><?=$cliente['telefono']?></td>
+                                        <td><?=$envio['identificador']?></td>
+                                        <td><?=$envio['codigo']?></td>
+                                        <td><?=$envio['destinatario']?></td>
+                                        <td><?=$envio['fecha_recepcion']?></td>
+                                        <td><?=$envio['fecha_envio']?></td>
+                                        <td><?=$envio['calle']?></td>
+                                        <td><?=$envio['numero_puerta']?></td>
+                                        <td><?=$envio['apartamento']?></td>
+                                        <td><?=$envio['otros']?></td>
                                         <td>
-                                            <a class="waves-effect waves-light btn-small red darken-1" href="sistema.php?r=clientes&id=<?php echo $cliente['id']; ?>&a=borrar"><i class="material-icons">delete</i></a>
-                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarCliente&id=<?php echo $cliente['id']; ?>&a=editar"><i class="material-icons">create</i></a>
+                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarEnvio&id=<?php echo $envio['id']; ?>&a=editar"><i class="material-icons">create</i></a>
                                         </td>
                                     </tr>
 

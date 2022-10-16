@@ -1,8 +1,8 @@
 <?php
 
-	require_once("modelos/clientes_modelo.php");
+	require_once("modelos/empleados_modelo.php");
 
-	$objClientes = new clientes_modelo();
+	$objEmpleados = new empleados_modelo();
 
 
 	// Evaluar las acciones que mando
@@ -10,23 +10,23 @@
 	if(isset($_GET['accion']) && $_GET['accion'] == "ingresar"){
 
 		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objClientes->constructor();
-		$error = $objClientes->ingresar();
+		$objEmpleados->constructor();
+		$error = $objEmpleados->ingresar();
 
 	}
 	if(isset($_GET['a']) && $_GET['a'] == "borrar"){
 
 		$id = isset($_GET['id'])?$_GET['id']:"";
-		$objClientes->cargar($id);	
-		$error = $objClientes->borrar();
-        header('Location: sistema.php?r=clientes');
+		$objEmpleados->cargar($id);	
+		$error = $objEmpleados->borrar();
+        header('Location: sistema.php?r=empleados');
 	}
 
 	if(isset($_GET['accion']) && $_GET['accion'] == "guardar"){
 
 		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objClientes->constructor();
-		$error = $objClientes->guardar();
+		$objEmpleados->constructor();
+		$error = $objEmpleados->guardar();
 
 	}
 		
@@ -36,11 +36,11 @@
 	if(isset($_GET['p']) && !Empty($_GET['p']) && $_GET['p'] != ""){
 		$arrayFiltro["pagina"] = $_GET['p'];
 	}
-	$arrayPagina = $objClientes->paginador($arrayFiltro["pagina"]);
+	$arrayPagina = $objEmpleados->paginador($arrayFiltro["pagina"]);
 
 
 
-	$listaClientes	= $objClientes->listar($arrayFiltro);
+	$listaEmpleados	= $objEmpleados->listar($arrayFiltro);
 
 
 ?>
@@ -50,7 +50,7 @@
 <html lang="en">
 
 <head>
-    <title>Clientes</title>
+    <title>Empleados</title>
 </head>
 
 <body>
@@ -94,24 +94,40 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Documento</th>
-                                <th>Nombres</th>
-                                <th>Apellidos</th>
-                                <th>Teléfono</th>
-                                <th><a href="sistema.php?r=registrarCliente" class="waves-effect waves-light btn blue darken-4">Registrar</a></th>
+                                <th>Email</th>
+                                <th>Tipo</th>
+                                <th>Acciones</th>
+                                <th><a href="sistema.php?r=registrarEmpleado" class="waves-effect waves-light btn blue darken-4">Registrar</a></th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <?php
-                                foreach($listaClientes as $cliente){
+                                foreach($listaEmpleados as $empleado){
+                                    if($empleado['tipo']!='admin'){
                             ?>
                                     <tr>
-                                        <td><?=$cliente['id']?></td>
-                                        <td><?=$cliente['documento']?></td>
-                                        <td><?=$cliente['nombres']?></td>
-                                        <td><?=$cliente['apellidos']?></td>
-                                        <td><?=$cliente['telefono']?></td>
+                                        <td><?=$empleado['id']?></td>
+                                        <td><?=$empleado['mail']?></td>
+                                        <td><?=$empleado['tipo']?></td>
+                                        <td>
+                                            <a class="waves-effect waves-light btn-small red darken-1" href="sistema.php?r=empleados&id=<?php echo $empleado['id']; ?>&a=borrar"><i class="material-icons">delete</i></a>
+                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarEmpleado&id=<?php echo $empleado['id']; ?>&a=editar"><i class="material-icons">create</i></a>
+                                        </td>
+                                    </tr>
+
+                            <?php
+                                    }
+                                }
+                            ?>
+                             <?php
+                                foreach($listaEmpleados as $empleado){
+                                    if($empleado['tipo']!='recepcionista'){
+                            ?>
+                                    <tr>
+                                        <td><?=$empleado['id']?></td>
+                                        <td><?=$empleado['mail']?></td>
+                                        <td><?=$empleado['tipo']?></td>
                                         <td>
                                             <a class="waves-effect waves-light btn-small red darken-1" href="sistema.php?r=clientes&id=<?php echo $cliente['id']; ?>&a=borrar"><i class="material-icons">delete</i></a>
                                             <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarCliente&id=<?php echo $cliente['id']; ?>&a=editar"><i class="material-icons">create</i></a>
@@ -119,7 +135,25 @@
                                     </tr>
 
                             <?php
-                                    
+                                    }
+                                }
+                            ?>
+                             <?php
+                                foreach($listaEmpleados as $empleado){
+                                    if($empleado['tipo']!='encargado,cadete'){
+                            ?>
+                                    <tr>
+                                        <td><?=$empleado['id']?></td>
+                                        <td><?=$empleado['mail']?></td>
+                                        <td><?=$empleado['tipo']?></td>
+                                        <td>
+                                            <a class="waves-effect waves-light btn-small red darken-1" href="sistema.php?r=envios&id=<?php echo $envio['id']; ?>&a=borrar"><i class="material-icons">delete</i></a>
+                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarEnvio&id=<?php echo $envio['id']; ?>&a=editar"><i class="material-icons">create</i></a>
+                                        </td>
+                                    </tr>
+
+                            <?php
+                                    }
                                 }
                             ?>
                         </tbody>

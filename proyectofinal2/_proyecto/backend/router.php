@@ -6,32 +6,34 @@ if (isset($_GET['r']) && !empty($_GET['r']) && $_GET['r'] != "") {
     if ($ruta == "menu") {
         include("menu.php");
     }
-    if ($ruta == "recepcionistas") {
-        include("vistas/recepcionistas.php");
-    }
-    if ($ruta == "encargados") {
-        include("vistas/encargados.php");
-    }
-    if ($ruta == "cadetes") {
-        include("vistas/cadetes.php");
+    if ($ruta == "empleados") {
+        include("vistas/empleados.php");
     }
     if ($ruta == "clientes") {
         include("vistas/clientes.php");
     }
-    /* frontend */
-    if ($ruta == "inicio") {
-        include("../frontend/inicio.php");
+    if ($ruta == "envios") {
+        include("vistas/envios.php");
     }
-    if ($ruta == "servicios") {
-        include("../frontend/vistas/servicios.php");
+    if ($ruta == "registrarEmpleado") {
+        include("vistas/registrarEmpleado.php");
     }
-    if ($ruta == "contacto") {
-        include("../frontend/vistas/contacto.php");
+    if ($ruta == "registrarCliente") {
+        include("vistas/registrarCliente.php");
     }
-    if ($ruta == "rastrear") {
-        include("../frontend/vistas/rastrear.php");
+    if ($ruta == "registrarEnvio") {
+        include("vistas/registrarEnvio.php");
     }
-    
+    if ($ruta == "editarEmpleado") {
+        include("vistas/editarEmpleado.php");
+    }
+    if ($ruta == "editarCliente") {
+        include("vistas/editarCliente.php");
+    }
+    if ($ruta == "editarEnvio") {
+        include("vistas/editarEnvio.php");
+    }
+
 } else {
 
     echo ("No se encontraron parametros");
