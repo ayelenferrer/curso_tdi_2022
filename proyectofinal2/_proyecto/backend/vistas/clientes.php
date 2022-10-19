@@ -4,41 +4,24 @@
 
 	$objClientes = new clientes_modelo();
 
+    if(isset($_GET['a']) && $_GET['a'] == "borrar"){
 
-	// Evaluar las acciones que mando
-	$error = array();
-	if(isset($_GET['accion']) && $_GET['accion'] == "ingresar"){
-
-		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objClientes->constructor();
-		$error = $objClientes->ingresar();
-
-	}
-	if(isset($_GET['a']) && $_GET['a'] == "borrar"){
-
-		$id = isset($_GET['id'])?$_GET['id']:"";
-		$objClientes->cargar($id);	
-		$error = $objClientes->borrar();
+        $id = isset($_GET['id'])?$_GET['id']:"";
+        $objClientes->cargar($id);
+        $error = $objClientes->borrar();
         header('Location: sistema.php?r=clientes');
-	}
-
-	if(isset($_GET['accion']) && $_GET['accion'] == "guardar"){
-
-		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objClientes->constructor();
-		$error = $objClientes->guardar();
-
-	}
-		
-
+    }
 	// Armamos el paginado
 	$arrayFiltro 	= array("pagina" => "1");
 	if(isset($_GET['p']) && !Empty($_GET['p']) && $_GET['p'] != ""){
 		$arrayFiltro["pagina"] = $_GET['p'];
 	}
+
+    if(isset($_POST['search']) ){
+        $arrayFiltro["search"] = $_POST['search']; 
+    }
+
 	$arrayPagina = $objClientes->paginador($arrayFiltro["pagina"]);
-
-
 
 	$listaClientes	= $objClientes->listar($arrayFiltro);
 
@@ -51,6 +34,11 @@
 
 <head>
     <title>Clientes</title>
+    <style>
+        .disabled {
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -79,9 +67,9 @@
             <!--search bar-->
             <nav>
                 <div class="nav-wrapper">
-                    <form>
+                <form method="POST">
                         <div class="input-field grey lighten-2">
-                            <input id="search" type="search" required>
+                            <input id="search" name="search" type="search" >
                             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             <i class="material-icons">close</i>
                         </div>
@@ -124,15 +112,22 @@
                             ?>
                         </tbody>
                     </table>
+                 
                     <ul class="pagination center text-center">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active blue darken-4"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+						<li <?= $arrayPagina['pagina']==1? 'class="waves-effect disabled"':''?> ><a href="sistema.php?r=clientes&p=<?=$arrayPagina['paginaAtras']?>"><i class="material-icons">chevron_left</i></a></li>
+                        <?php
+                        for($i = 1; $i<=$arrayPagina['totalPagina'] ; $i++){
+                            $activo = "waves-effect";
+                            if($arrayPagina['pagina'] == $i){
+                                $activo = "active blue darken-4";
+                            }						
+                        ?>
+                            <li class="<?=$activo?>"><a href="sistema.php?r=clientes&p=<?=$i?>"><?=$i?></a></li>
+                        <?php
+                            }
+                        ?>
+						<li <?= $arrayPagina['pagina']>=$arrayPagina['totalPagina'] ? 'class="waves-effect disabled"':''?>><a href="sistema.php?r=clientes&p=<?=$arrayPagina['paginaSiguiente']?>"><i class="material-icons">chevron_right</i></a></li>
+					</ul>
                 </div>
             </div>
         </div>

@@ -4,37 +4,17 @@
 
 	$objEnvios = new envios_modelo();
 
-
-	// Evaluar las acciones que mando
-	$error = array();
-	if(isset($_GET['accion']) && $_GET['accion'] == "ingresar"){
-
-		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objEnvios->constructor();
-		$error = $objEnvios->ingresar();
-
-	}
-
-	if(isset($_GET['accion']) && $_GET['accion'] == "guardar"){
-
-		// En caso que la accion sera ingresar procedemos a ingresar el registro
-		$objEnvios->constructor();
-		$error = $objEnvios->guardar();
-
-	}
-		
-
 	// Armamos el paginado
 	$arrayFiltro 	= array("pagina" => "1");
+    $pagina = 1;
 	if(isset($_GET['p']) && !Empty($_GET['p']) && $_GET['p'] != ""){
+        $pagina = $_GET['p'];
 		$arrayFiltro["pagina"] = $_GET['p'];
 	}
-	$arrayPagina = $objEnvios->paginador($arrayFiltro["pagina"]);
-
-
-
+    if(isset($_POST['search']) ){
+        $arrayFiltro["search"] = $_POST['search']; 
+    }
 	$listaEnvios	= $objEnvios->listar($arrayFiltro);
-
 
 ?>
 
@@ -44,6 +24,11 @@
 
 <head>
     <title>Envios</title>
+    <style>
+        .disabled {
+            pointer-events: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -72,9 +57,9 @@
             <!--search bar-->
             <nav>
                 <div class="nav-wrapper">
-                    <form>
+                    <form method="POST">
                         <div class="input-field grey lighten-2">
-                            <input id="search" type="search" required>
+                            <input id="search" name="search" type="search" >
                             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
                             <i class="material-icons">close</i>
                         </div>
@@ -86,7 +71,6 @@
                     <table class="bordered responsive-table highlight">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Código</th>
                                 <th>Destinatario</th>
                                 <th>Recepción</th>
@@ -105,17 +89,41 @@
                                 foreach($listaEnvios as $envio){
                             ?>
                                     <tr>
-                                        <td><?=$envio['identificador']?></td>
                                         <td><?=$envio['codigo']?></td>
                                         <td><?=$envio['destinatario']?></td>
-                                        <td><?=$envio['fecha_recepcion']?></td>
+                                        <td>
+                                            <?php
+                                                if(!isset($envio['fecha_recepcion'])){
+                                                    echo '<span class="red-text text-darken-2">NO RECIBIDO</span>';
+                                                }
+                                                else{
+                                                    echo $envio['fecha_recepcion'];
+                                                }
+                                            ?>
+                                        </td>
                                         <td><?=$envio['fecha_envio']?></td>
                                         <td><?=$envio['calle']?></td>
                                         <td><?=$envio['numero_puerta']?></td>
                                         <td><?=$envio['apartamento']?></td>
                                         <td><?=$envio['otros']?></td>
                                         <td>
-                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarEnvio&id=<?php echo $envio['id']; ?>&a=editar"><i class="material-icons">create</i></a>
+                                            <?php
+                                                if($envio['estado']=='pendiente'){
+                                                    echo '<span class="blue-text text-darken-2">PENDIENTE</span>';
+                                                }
+                                                if($envio['estado']=='en_reparto'){
+                                                    echo '<span class="orange-text text-darken-2">EN REPARTO</span>';
+                                                }
+                                                if($envio['estado']=='en_camino'){
+                                                    echo '<span class="yellow-text text-darken-2">EN CAMINO</span>';
+                                                }
+                                                if($envio['estado']=='entregado'){
+                                                    echo '<span class="green-text text-darken-2">ENTREGADO</span>';
+                                                }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarEnvio&id=<?php echo $envio['identificador']; ?>&a=editar"><i class="material-icons">create</i></a>
                                         </td>
                                     </tr>
 
@@ -125,15 +133,24 @@
                             ?>
                         </tbody>
                     </table>
+                 
                     <ul class="pagination center text-center">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active blue darken-4"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
+						<li <?= $pagina==1? 'class="waves-effect disabled"':''?>><a href="sistema.php?r=envios&p=<?=$pagina - 1?>"><i class="material-icons">chevron_left</i></a></li>
+                        <?php
+                        $totalRegistros = $objEnvios->totalRegistros();
+                        $totalPagina = ceil($totalRegistros/10);
+                        for($i = 1; $i<=$totalPagina ; $i++){
+                            $activo = "waves-effect";
+                            if($pagina == $i){
+                                $activo = "active blue darken-4";
+                            }						
+                        ?>
+                            <li class="<?=$activo?>"><a href="sistema.php?r=envios&p=<?=$i?>"><?=$i?></a></li>
+                        <?php
+                        }
+                        ?>
+						<li <?= $pagina>=$totalPagina? 'class="waves-effect disabled"':''?>><a href="sistema.php?r=envios&p=<?=$pagina + 1?>"><i class="material-icons">chevron_right</i></a></li>
+					</ul>
                 </div>
             </div>
         </div>

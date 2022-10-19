@@ -37,7 +37,7 @@ class empleados_modelo extends generico_modelo
     public function validarLogin($email, $clave)
     {
 
-        $sql = "SELECT id, mail, tipo FROM empleados WHERE mail = :email AND clave = :clave; ";
+        $sql = "SELECT id, mail, tipo FROM empleados WHERE mail = :email AND clave = :clave AND estado=1; ";
         $arrayDatos = array("email" => $email, "clave" => md5($clave));
         $lista         = $this->ejecutarConsulta($sql, $arrayDatos);
         return $lista;

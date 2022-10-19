@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios</title>
+    <title>Rastrear</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
@@ -23,17 +23,12 @@
             <div class="row">
                 <h3 class="center-align">Rastrear un envío</h3>
                 <article class="col s6 offset-s3">
-                    <form method="POST" action="rastrear.php">
+                    <form method="GET" action="index.php?r=rastreo">
                         <div class="input-field">
-                            <label for="nombre">Número de rastreo</label>
-                            <input type="text" name="nombre" required>
+                            <label for="nombre">Codigo de envio</label>
+                            <input type="text" id="codigo" name="codigo" required>
+                            <input type="hidden" id="r" name="r" value="rastreo" required>
                         </div>
-
-                        <div class="input-field">
-                            <label for="nombre">Número de pedido</label>
-                            <input type="text" name="nombre" required>
-                        </div>
-
                         <p class="center-align">
                             <button href="rastreo.php?r=rastreo" class="waves-effect waves-light btn blue darken-4" type="submit">Buscar</button>
                         </p>

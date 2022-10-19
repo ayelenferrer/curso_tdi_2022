@@ -91,13 +91,14 @@ class clientes_modelo extends generico_modelo
 						documento = :documento,
 						nombres = :nombres,
 						apellidos = :apellidos,
-                        telefono = :telefono";
+                        telefono = :telefono,
+                        estado = 1";
 
         $arrayInsert = array(
             'documento'         => $this->documento,
             'nombres'             => $this->nombres,
             'apellidos'         => $this->apellidos,
-            'telefono'         => $this->telefono,
+            'telefono'         => $this->telefono
         );
         $this->persistirConsulta($sqlInsert, $arrayInsert);
         $retorno = array('estado' => 'Ok', 'mensaje' => 'Se ingreso el cliente correctamente');
@@ -110,15 +111,15 @@ class clientes_modelo extends generico_modelo
         $arrayDatos = array('documento' => $this->documento);
         $lista         = $this->ejecutarConsulta($sql, $arrayDatos);
         if(count($lista)>1 || (count($lista)==1 && $lista[0]['documento']!=$this->documento)){
-            $retorno = array('estado' => 'Error', 'mensaje' => 'El documento ingresado ya se registró');
+            $retorno = array('documento' => 'Error', 'mensaje' => 'El documento ingresado ya se registró');
             return $retorno;
         }
         if ($this->nombres == '') {
-            $retorno = array('estado' => 'Error', 'mensaje' => 'Nombres no puede estar vacio');
+            $retorno = array('nombres' => 'Error', 'mensaje' => 'El nombre no puede estar vacio');
             return $retorno;
         }
         if ($this->apellidos == '') {
-            $retorno = array('estado' => 'Error', 'mensaje' => 'Apellidos no puede estar vacio');
+            $retorno = array('apellidos' => 'Error', 'mensaje' => 'El apellido no puede estar vacio');
             return $retorno;
         }
         $sql = 'SELECT * FROM cliente WHERE telefono = :telefono; ';
@@ -181,7 +182,13 @@ class clientes_modelo extends generico_modelo
 
         $sql = "SELECT * FROM cliente WHERE estado = 1 ";
         $arrayDatos = array();
-
+        if (isset($filtros['search']) && $filtros['search'] != "") {
+            $filtro = $filtros['search'];
+            $sql .= " AND (documento like '%" . $filtro . 
+            "%' OR nombres like '%". $filtro ."%' ".
+            " OR apellidos like '%". $filtro ."%' ".
+            " OR telefono like '%". $filtro ."%' )";
+        }
         if (isset($filtros['pagina']) && $filtros['pagina'] != "") {
 
             $pagina = ($filtros['pagina'] - 1) * 10;
@@ -210,7 +217,7 @@ class clientes_modelo extends generico_modelo
     public function totalRegistros()
     {
 
-        $sql = "SELECT count(*) AS total FROM cliente";
+        $sql = "SELECT count(*) AS total FROM cliente WHERE estado=1";
         $arrayDatos = array();
 
         $lista     = $this->ejecutarConsulta($sql, $arrayDatos);

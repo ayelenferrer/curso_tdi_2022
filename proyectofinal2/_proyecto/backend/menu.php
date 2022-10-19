@@ -20,7 +20,7 @@
         }
         ?>
         <?php
-        if (isset($_SESSION['tipo']) && ($_SESSION['tipo'] == 'cadete' || $_SESSION['tipo'] == 'encargado')) {
+        if (isset($_SESSION['tipo']) && $_SESSION['tipo'] != 'admin') {
         ?>
             <div class="row">
                 <div class="col s12 m3">
@@ -30,6 +30,24 @@
                             <p class="blacj-text">Envios</p>
                             <div class="center space">
                                 <a class="waves-effect waves-light btn blue darken-4" href="sistema.php?r=envios">Ver</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php
+        }
+        ?>
+        <?php
+        if (isset($_SESSION['tipo']) && ($_SESSION['tipo'] == 'cadete' || $_SESSION['tipo'] == 'encargado')) {
+        ?>
+            <div class="row">
+                <div class="col s12 m3">
+                    <div class="card gradient-shadow grey lighten-2">
+                        <div class="card-content center">
+                            <i class="large material-icons">local_post_office</i>
+                            <p class="blacj-text">Gestionar envio</p>
+                            <div class="center space">
+                                <a class="waves-effect waves-light btn blue darken-4" href="sistema.php?r=gestionarEnvio">Ver</a>
                             </div>
                         </div>
                     </div>
@@ -48,6 +66,17 @@
                                     <p class="blacj-text">Clientes</p>
                                     <div class="center space">
                                         <a class="waves-effect waves-light btn blue darken-4" href="sistema.php?r=clientes">Ver</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m3">
+                            <div class="card gradient-shadow grey lighten-2">
+                                <div class="card-content center">
+                                    <i class="large material-icons">art_track</i>
+                                    <p class="blacj-text">Registrar envio</p>
+                                    <div class="center space">
+                                        <a class="waves-effect waves-light btn blue darken-4" href="sistema.php?r=registrarEnvio">Ver</a>
                                     </div>
                                 </div>
                             </div>

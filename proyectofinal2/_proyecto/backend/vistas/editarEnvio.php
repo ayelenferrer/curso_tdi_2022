@@ -20,7 +20,6 @@ if(isset($_GET['a']) && $_GET['a'] == "editar" && isset($_GET['id']) && $_GET['i
     }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +43,12 @@ if(isset($_GET['a']) && $_GET['a'] == "editar" && isset($_GET['id']) && $_GET['i
             color:rgb(13,71,161);
         }
     </style>
+
+    <script>
+        $(document).ready(function(){
+            $('select').material_select();
+        });
+    </script>
 </head>
 
 <body>
@@ -55,24 +60,8 @@ if(isset($_GET['a']) && $_GET['a'] == "editar" && isset($_GET['id']) && $_GET['i
                         <fieldset>
                             <ul class="form-style-1">
                                 <li>
-                                    <label>Id<span class="required"></span></label>
-                                    <input type="text" id="identificador" name="identificador" class="field-long" value="<?=$objEnvios->obtenerIdentificador()?>" />
-                                </li>
-                                <li>
-                                    <label>Código<span class="required"></span></label>
-                                    <input type="text" id="codigo" name="codigo" class="field-long" value="<?=$objEnvios->obtenerCodigo()?>" />
-                                </li>
-                                <li>
                                     <label>Destinatario<span class="required"></span></label>
                                     <input type="text" id="destinatario" name="destinatario" class="field-long" value="<?=$objEnvios->obtenerDestinatario()?>" />
-                                </li>
-                                <li>
-                                    <label>Recepción<span class="required"></span></label>
-                                    <input type="text" id="fecha_recepcion" name="fecha_recepcion" class="field-long" value="<?=$objEnvios->obtenerRecepcion()?>" />
-                                </li>
-                                <li>
-                                    <label>Envio<span class="required"></span></label>
-                                    <input type="text" id="fecha_envio" name="fecha_envio" class="field-long" value="<?=$objEnvios->obtenerEnvio()?>" />
                                 </li>
                                 <li>
                                     <label>Calle<span class="required"></span></label>
@@ -91,10 +80,22 @@ if(isset($_GET['a']) && $_GET['a'] == "editar" && isset($_GET['id']) && $_GET['i
                                     <input type="text" id="otros" name="otros" class="field-long" value="<?=$objEnvios->obtenerOtros()?>" />
                                 </li>
                                 <li>
+                                    <label>Estado<span class="required"></span></label>
+                                    <div class="input-field col s12">
+                                        <select id="estado" name="estado"  value="<?=$objEnvios->obtenerEstado()?>" >
+                                            <option value="" disabled>Seleccione una opcion...</option>
+                                            <option value="pendiente" <?=$objEnvios->obtenerEstado() == 'pendiente' ? 'selected' : '' ?>>Pendiente</option>
+                                            <option value="en_reparto" <?=$objEnvios->obtenerEstado() == 'en_reparto' ? 'selected' : '' ?>>En reparto</option>
+                                            <option value="en_camino" <?=$objEnvios->obtenerEstado() == 'en_camino' ? 'selected' : '' ?>>En camino</option>
+                                            <option value="entregado" <?=$objEnvios->obtenerEstado() == 'entregado' ? 'selected' : '' ?>>Entregado</option>
+                                        </select>
+                                    </div>
+                                </li>
+                                <li>
                                     <input class="waves-effect waves-light btn blue darken-4" type="submit" name="submit" value="Enviar">
                                 </li>
 
-
+                            
                             </ul>
                         </fieldset>
                     </form>

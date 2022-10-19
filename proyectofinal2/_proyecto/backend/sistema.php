@@ -36,17 +36,34 @@
         <li id="dash_dashboard"><a class="waves-effect" href="sistema.php?r=menu"><b>Menú</b></a></li>
 
         <ul class="collapsible" data-collapsible="accordion">
+            <?php
+                @session_start();
+                if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'recepcionista') {
+            ?>
             <li id="dash_users">
                 <div id="dash_users_header"> <a href="sistema.php?r=clientes" class="collapsible-header waves-effect"><b>Clientes</b></a></div>
             </li>
-
+            <?php
+                }
+            ?>
+            <?php
+                if (isset($_SESSION['tipo']) && $_SESSION['tipo'] == 'admin') {
+            ?>
             <li id="dash_products">
                 <div id="dash_products_header"> <a href="sistema.php?r=empleados" class="collapsible-header waves-effect"><b>Empleados</b></a></div>
             </li>
-
+            <?php
+                }
+            ?>
+            <?php
+                if (isset($_SESSION['tipo']) && ($_SESSION['tipo'] != 'admin')) {
+            ?>
             <li id="dash_categories">
                 <div id="dash_categories_header"><a href="sistema.php?r=envios" class="collapsible-header waves-effect"><b>Envios</b></a></div>
             </li>
+            <?php
+                }
+            ?>
         </ul>
     </ul>
 

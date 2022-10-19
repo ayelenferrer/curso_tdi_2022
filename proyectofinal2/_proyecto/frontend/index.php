@@ -61,7 +61,7 @@
     <br>
     <main>
         <div class="container">
-            <?PHP include("../backend/router.php"); ?>
+            <?PHP include("router.php"); ?>
         </div>
         <footer class="page-footer blue darken-4">
             <div class="container">

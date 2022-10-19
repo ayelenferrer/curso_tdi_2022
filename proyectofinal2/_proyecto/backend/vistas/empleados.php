@@ -120,42 +120,6 @@
                                     }
                                 }
                             ?>
-                             <?php
-                                foreach($listaEmpleados as $empleado){
-                                    if($empleado['tipo']!='recepcionista'){
-                            ?>
-                                    <tr>
-                                        <td><?=$empleado['id']?></td>
-                                        <td><?=$empleado['mail']?></td>
-                                        <td><?=$empleado['tipo']?></td>
-                                        <td>
-                                            <a class="waves-effect waves-light btn-small red darken-1" href="sistema.php?r=clientes&id=<?php echo $cliente['id']; ?>&a=borrar"><i class="material-icons">delete</i></a>
-                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarCliente&id=<?php echo $cliente['id']; ?>&a=editar"><i class="material-icons">create</i></a>
-                                        </td>
-                                    </tr>
-
-                            <?php
-                                    }
-                                }
-                            ?>
-                             <?php
-                                foreach($listaEmpleados as $empleado){
-                                    if($empleado['tipo']!='encargado,cadete'){
-                            ?>
-                                    <tr>
-                                        <td><?=$empleado['id']?></td>
-                                        <td><?=$empleado['mail']?></td>
-                                        <td><?=$empleado['tipo']?></td>
-                                        <td>
-                                            <a class="waves-effect waves-light btn-small red darken-1" href="sistema.php?r=envios&id=<?php echo $envio['id']; ?>&a=borrar"><i class="material-icons">delete</i></a>
-                                            <a class="waves-effect waves-light btn-small yellow lighten-1" href="sistema.php?r=editarEnvio&id=<?php echo $envio['id']; ?>&a=editar"><i class="material-icons">create</i></a>
-                                        </td>
-                                    </tr>
-
-                            <?php
-                                    }
-                                }
-                            ?>
                         </tbody>
                     </table>
                     <ul class="pagination center text-center">

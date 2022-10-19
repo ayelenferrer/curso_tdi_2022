@@ -1,6 +1,6 @@
 <?php
 
-require_once("modelos/generico_modelo.php");
+require_once("php/modelos/generico_modelo.php");
 
 class envios_modelo extends generico_modelo
 {
